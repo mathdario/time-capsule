@@ -1,0 +1,57 @@
+# Directories
+/node_modules
+/dist
+/build
+/.cache
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# IDEs and Editors
+.idea
+.vscode
+*.sublime-project
+*.sublime-workspace
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# Compiled files
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Package files
+*.war
+*.ear
+*.jar
+
+# Dependency directories
+/target/
+/bower_components/
+
+# Logs and databases
+/logs/
+*.log
+*.sql
+*.sqlite
+
+# Operating System Files
+.DS_Store
+Icon?
+ehthumbs.db
+Desktop.ini
+
+# Miscellaneous
+*.bak
+*.tmp
+
+# Ignore all .env files
+.env*

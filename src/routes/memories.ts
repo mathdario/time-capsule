@@ -13,7 +13,7 @@ export async function memoriesRoutes(app: FastifyInstance) {
     return memories.map((memory) => {
       return {
         id: memory.id,
-        coverUrl: memory.converUrl,
+        coverUrl: memory.coverUrl,
         excerpt: memory.content.substring(0, 115).concat("..."),
       };
     });
@@ -38,17 +38,17 @@ export async function memoriesRoutes(app: FastifyInstance) {
   app.post("/memories", async (request) => {
     const bodySchema = z.object({
       content: z.string(),
-      converUrl: z.string(),
-      ispUBLIC: z.coerce.boolean().default(false),
+      coverUrl: z.string(),
+      isPublic: z.coerce.boolean().default(false),
     });
 
-    const { content, converUrl, ispUBLIC } = bodySchema.parse(request.body);
+    const { content, coverUrl, isPublic } = bodySchema.parse(request.body);
 
     const memory = await prisma.memory.create({
       data: {
         content,
-        converUrl,
-        ispUBLIC,
+        coverUrl,
+        isPublic,
         userId: "",
       },
     });

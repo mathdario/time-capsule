@@ -35,7 +35,24 @@ export async function memoriesRoutes(app: FastifyInstance) {
     return memory;
   });
 
-  app.post("/memories", async () => {});
+  app.post("/memories", async (request) => {
+    const bodySchema = z.object({
+      content: z.string(),
+      converUrl: z.string(),
+      ispUBLIC: z.coerce.boolean().default(false),
+    });
+
+    const { content, converUrl, ispUBLIC } = bodySchema.parse(request.body);
+
+    const memory = await prisma.memory.create({
+      data: {
+        content,
+        converUrl,
+        ispUBLIC,
+        userId: "",
+      },
+    });
+  });
 
   app.put("/memories:id", async () => {});
 

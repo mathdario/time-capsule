@@ -1,8 +1,13 @@
 import fastify from "fastify";
+import cors from "@fastify/cors";
 import { memoriesRoutes } from "./routes/memories";
 
 const app = fastify();
 
+app.register(cors, {
+  // TODAS URL DO FRONTEND PODEM ACESSAR O BACKEND
+  origin: true,
+});
 app.register(memoriesRoutes);
 
 app
